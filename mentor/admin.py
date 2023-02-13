@@ -1,6 +1,17 @@
 from django.contrib import admin
 
 from .models import Category, Mentor
+from review.models import Comment
 
 admin.site.register(Category)
-admin.site.register(Mentor)
+
+class CommentInline(admin.TabularInline):
+    model = Comment
+
+class MentorAdmin(admin.ModelAdmin):
+    list_filter = ['name', 'category']
+    list_display = ['name', 'slug'] 
+    search_fields = ['name', 'description']
+    inlines = [CommentInline]
+    
+admin.site.register(Mentor, MentorAdmin)
