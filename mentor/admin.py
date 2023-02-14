@@ -10,7 +10,7 @@ class CommentInline(admin.TabularInline):
 
 class MentorAdmin(admin.ModelAdmin):
     list_filter = ['name', 'category']
-    list_display = ['name', 'years'] 
+    list_display = ['name', 'years', 'category'] 
     search_fields = ['name', 'description']
     inlines = [CommentInline]
     

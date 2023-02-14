@@ -9,11 +9,11 @@ class CommentSerializer(serializers.ModelSerializer):
         model = Comment
         fields = '__all__'
         
-        def create(self, validated_data):
-            request = self.context.get('request')
-            user = request.user
-            comment = Comment.objects.create(author=user, **validated_data)
-            return comment
+    def create(self, validated_data):
+        request = self.context.get('request')
+        user = request.user
+        comment = Comment.objects.create(author=user, **validated_data)
+        return comment
         
 
 class RatingSerializer(serializers.ModelSerializer):
@@ -34,7 +34,7 @@ class RatingSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Вы уже оставляли рейтинг на данного ментора')
         return mentor
     
-    def create(self, **validated_data):
+    def create(self, validated_data):
         request = self.context.get('request')
         user = request.user
         rating = Rating.objects.create(author=user, **validated_data)
@@ -49,7 +49,7 @@ class LikeSerializer(serializers.ModelSerializer):
         model = Like
         fields = '__all__'
     
-    def create(self, **validated_data):
+    def create(self, validated_data):
         request = self.context.get('request')
         user = request.user
         like = Like.objects.create(author=user, **validated_data)
