@@ -23,7 +23,7 @@ from django.conf.urls.static import static
 
 schema_view = get_schema_view(openapi.Info(
     title = 'Mentors_api',
-    description= 'mentor',
+    description= 'online platform for choosing the right mentor',
     default_version= 'v1',
     public= True
     )
