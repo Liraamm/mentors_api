@@ -39,5 +39,7 @@ class Mentor(models.Model):
     class Meta:
         verbose_name = 'Ментор'
         verbose_name_plural = 'Менторы'
+ 
+
 
     
