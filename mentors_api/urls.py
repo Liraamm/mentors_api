@@ -35,6 +35,7 @@ urlpatterns = [
     path('api/v1/', include('mentor.urls')),
     path('api/v1/', include('account.urls')),
     path('api/v1/', include('review.urls')),
+    path('api/v1/', include('service.urls')),
 ]
 
 

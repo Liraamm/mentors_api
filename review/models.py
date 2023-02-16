@@ -15,6 +15,10 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.body
+    
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
 
 class Like(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes')
@@ -26,12 +30,12 @@ class Like(models.Model):
 
 
 class LikeComment(models.Model):
-    autor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked')
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='liked')
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE, related_name='likes')
     is_liked = models.BooleanField(default=False)
     
     def __str__(self):
-        return f'{self.comment}Liked by{self.autor.username}'
+        return f'{self.comment}Liked by{self.author.username}'
     
 
 class Rating(models.Model):

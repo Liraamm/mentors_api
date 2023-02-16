@@ -1,4 +1,11 @@
 from django.contrib import admin
+
+from .models import Category, Mentor, CategoryItem
+
+admin.site.register(Category)
+admin.site.register(Mentor)
+admin.site.register(CategoryItem)
+
 from django.db.models import Avg
 from .models import Category, Mentor
 from review.models import Comment
@@ -16,3 +23,4 @@ class MentorAdmin(admin.ModelAdmin):
     
     
 admin.site.register(Mentor, MentorAdmin)
+

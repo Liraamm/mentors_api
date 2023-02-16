@@ -2,7 +2,7 @@ from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
 
-from .views import CategoryViewSet, MentorViewSet
+from .views import CategoryViewSet, MentorViewSet, CategoryItem
 
 router = DefaultRouter()
 router.register('mentors', MentorViewSet)
