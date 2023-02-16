@@ -10,7 +10,6 @@ class CommentSerializer(serializers.ModelSerializer):
         
     def create(self, validated_data):
         request = self.context.get('request')
-        print(self.context.get('request'))
         user = request.user
         comment = Comment.objects.create(author=user, **validated_data)
         return comment
@@ -48,7 +47,7 @@ class LikeSerializer(serializers.ModelSerializer):
         model = Like
         fields = '__all__'
     
-    def create(self, **validated_data):
+    def create(self, validated_data):
         request = self.context.get('request')
         user = request.user
         like = Like.objects.create(author=user, **validated_data)

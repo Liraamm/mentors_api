@@ -40,6 +40,8 @@ class Mentor(models.Model):
     class Meta:
         verbose_name = 'Ментор'
         verbose_name_plural = 'Менторы'
+ 
+
 
 class CategoryItem(models.Model):
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE, related_name='item')
