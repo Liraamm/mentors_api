@@ -14,6 +14,11 @@ class Category(models.Model):
             self.slug = slugify(self.title)
         super().save()
 
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+
+
 class Mentor(models.Model):
     name = models.CharField(verbose_name='Имя', max_length=30)
     last_name = models.CharField(verbose_name='Фамилия', max_length=30)
@@ -31,5 +36,8 @@ class Mentor(models.Model):
             self.slug = slugify(self.name)
         super().save()
 
+    class Meta:
+        verbose_name = 'Ментор'
+        verbose_name_plural = 'Менторы'
 
     
