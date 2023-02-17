@@ -27,16 +27,10 @@ class Mentor(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name='Цена')
     description = models.TextField(verbose_name='Описание', blank=True)
     years = models.IntegerField(verbose_name='Стаж')
-    slug = models.SlugField(max_length=30, primary_key=True, blank=True)
 
     def __str__(self) -> str:
         return f'Ментор {self.name} {self.last_name}'
     
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save()
-
     class Meta:
         verbose_name = 'Ментор'
         verbose_name_plural = 'Менторы'

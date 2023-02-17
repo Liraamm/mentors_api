@@ -1,8 +1,10 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
 from drf_yasg.utils import swagger_auto_schema
 from .serializers import RegisterSerializer, ChangePasswordSerializer, ForgotPasswordSerializer, ForgotPasswordCompleteSerializer
 from .models import User
+from rest_framework.authtoken.models import Token
 
 
 class RegisterView(APIView):
@@ -49,3 +51,4 @@ class ForgotPasswordCompleteView(APIView):
         if serializer.is_valid(raise_exception=True):
             serializer.set_new_password()
             return Response('Пароль успешно изменен')
+        
